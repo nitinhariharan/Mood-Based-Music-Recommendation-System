@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+.container {
+  height: 200px;
+}
+
+.center {
+  margin: 0;
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.main1{
+    height: 200px;
+}
+
+.main2 {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+</style>
+<body>
+    <h1 ><center style="font-size:40px;font-family:Segoe UI">Mood Based Music Classification System</center></h1>
+    <!--<button onclick="myFunction()" type="button">Capture</button>-->
+    <h2 class= "alignn"style="font-size:20px;font-family:Segoe UI;top:-30px;position:relative">Mood History</h2>
+    <div id="place_for_suggestions"></div>
+    <div class ="main1">
+        <div class="main2">
+            <img src="{{ url_for('video_feed') }}">
+        </div>
+    </div>
+    <div class="container">
+        <div class="center">
+            <button style="height:40px;width:80px;border-radius: 8px" onclick="myFunction()" type="button">Capture</button>
+        </div>
+    </div>
+</body>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+     <script>
+function myFunction() 
+{let data;
+  var name = 'user';
+  console.log(name);
+  $.post("/takeimage",
+   {
+     name: name
+   },
+   function(data, status)
+   {
+    data1=data.split('|')
+     alert("Data: " + data1[1]+ "\nStatus: " + status);
+     $.ajax({
+  url: "/suggestions",
+  type: "get",
+  data: {jsdata: data},
+  success: function(response) {
+    $("#place_for_suggestions").html(response);
+  },
+});
+   });
+
+  }
+
+
+</script>
+</html>

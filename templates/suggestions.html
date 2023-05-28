@@ -1,0 +1,5 @@
+<label id="value_lable" style="font-size:20px;font-family:Segoe UI">
+    {% for suggestion in suggestions %}
+    <a href="{{suggestion[0]}}">{{ suggestion[2]}}</a><br>:{{ suggestion[1]}}<br>
+    {% endfor %}
+</label>

@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <title>Video Streaming Demonstration</title>
+  </head>
+  <body>
+    <h1>Video Streaming Demonstration</h1>
+    <img src="{{ url_for('video_feed') }}">
+     <button onclick="myFunction()" type="button">Capture</button>
+     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+     <script>
+function myFunction() 
+{
+  var name = 'user';
+  console.log(name);
+  $.post("/takeimage",
+   {
+     name: name
+   },
+   function(data, status){
+     alert("Data: " + data + "\nStatus: " + status);
+   });
+}
+</script>
+  </body>
+</html>
