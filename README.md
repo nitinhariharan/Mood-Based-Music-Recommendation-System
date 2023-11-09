@@ -1,4 +1,4 @@
-Introduction:
+#Introduction:
 The Mood-Based Music Recommendation System is a web application that aims to enhance users' mood by recommending music based on their emotional state detected through facial expressions using OpenCV and a pre-trained emotion model. This project utilizes a combination of Python, Flask, Convolutional Neural Networks (CNN), OpenCV, K-Nearest Neighbors (KNN), and Standard Scalar to create a personalized music experience for users. The system has been designed to increase the mood level of users by up to 25%.
 
 Key Technologies Used:
